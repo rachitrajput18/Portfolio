@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachit Rajput - Portfolio</title>
+
+    <style>
+        /* CSS Variables for easy color customization */
+      /* :root {
+            --primary-color: #6c5ce7;
+            --primary-hover: #54a0ff;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2d3436;
+            --light-text: #636e72;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+      } */
+:root {
+    --primary-color: #3a0d0a; /* Vibrant Red/Orange */
+    --primary-hover: #ffa801; /* Bright Orange */
+    --bg-color: #fff9f5;      /* Soft warm off-white */
+    --card-bg: #ffffff;       /* Pure White */
+    --text-color: #2f3640;    /* Dark Slate */
+    --light-text: #718093;    /* Medium Gray */
+    --accent-glow: rgba(255, 94, 87, 0.15);
+}
+
+
+        /* Smooth scrolling for navbar links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Modern Gradient Header */
+        header {
+            background: linear-gradient(135deg, #1e272e, #2c3e50);
+            color: white;
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #ffffff;
+        }
+
+        header p {
+            margin: 8px 0 20px;
+            color: #74b9ff;
+            font-weight: 500;
+        }
+
+        /* Navigation Links */
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #f5f6fa;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Interactive Navigation Hover Effect */
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: #e9e2e2;
+            transform: translateY(-2px);
+        }
+
+        /* Section Layout */
+        section {
+            padding: 60px 20px;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #2d3436;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Underline accent for headings */
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        /* Profile image zoom on hover */
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 15px auto;
+            color: var(--light-text);
+            font-size: 1.05rem;
+        }
+
+        /* Skills Grid */
+        .skills {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background-color: var(--card-bg);
+            padding: 20px 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            flex: 1 1 200px;
+            max-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Interactive Skill Cards Hover Effect */
+        .skill:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
+        }
+
+        .skill h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .skill p {
+            margin-bottom: 0;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        /* Projects & Education Layout */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Interactive Project Cards Hover Effect */
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .project h3 {
+            margin-top: 0;
+            color: #2d3436;
+        }
+
+        .project p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Form Styling */
+        form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--text-color);
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 18px;
+            border: 1px solid #dfe6e9;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Interactive Input Focus State */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Interactive Submit Button */
+        input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #54a0ff;
+            transform: translateY(-2px);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e272e;
+            color: #b2bec3;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #74b9ff;
+            text-decoration: none;
+            margin: 0 8px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Rachit Rajput</h1>
+        <p>First-Year College Student | Aspiring Software Developer</p>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf8B6usUYGZNnIgd0BFoSx-2JdKlsWXJApsMLJXE-zAQ&s=10" alt="My Profile Photo" class="profile-img">
+            <h2>About Me</h2>
+            <p class="about">
+                Hello! I am <strong>Rachit Rajput</strong>, a first-year college student
+                passionate about technology, web development, and problem-solving.
+            </p>
+
+            <p class="about">
+                I am currently learning HTML, CSS, and Java.
+                I enjoy building simple websites and learning modern programming concepts.
+            </p>
+
+            <p class="about">
+                My goal is to become a skilled software developer and build impactful projects in the future.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <h2>My Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>Structuring semantic and accessible web pages.</p>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>Styling layouts using Flexbox, Grid, and animations.</p>
+            </div>
+
+           <!-- <div class="skill">
+                <h3>JavaScript</h3>
+                <p>Learning basic programming logic and dynamic interactivity.</p>
+            </div> -->
+
+            <div class="skill">
+                <h3>Java</h3>
+                <p>Understanding core programming and object-oriented fundamentals.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+        <div class="project-grid">
+
+            <div class="project">
+                <h3>Personal Portfolio</h3>
+                <p>
+                    A clean personal portfolio website created using HTML and CSS to showcase skills and education.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Student Survey Form</h3>
+                <p>
+                    A structured HTML form built to collect student feedback with custom form validation controls.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Flexbox Quest</h3>
+                <p>
+                    Built a game interface using Flexbox and CSS Grid to demonstrate responsive design.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Education Section -->
+    <section id="education">
+
+        <h2>Education</h2>
+
+        <div class="project">
+            <h3>Bachelor's Degree</h3>
+            <p><strong >Status:</strong> First Year Undergraduate Student at Scaler School Of Technology</p>
+            <p>Currently pursuing my degree in Computer Science / Technology.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+
+        <h2>Get In Touch</h2>
+
+        <form>
+
+            <label for="name">Name</label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="message">Message</label>
+            <textarea
+                id="message"
+                placeholder="Enter your message"
+                required
+            ></textarea>
+
+            <input type="submit" value="Send Message">
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        
+
+        <p>
+            <a href="https://www.linkedin.com/in/rachit-rajput-73a2ab41b?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a> |
+            <a href="https://github.com/rachitrajput18">GitHub</a> |
+            <a href="https://www.instagram.com/rajput_rachit18?utm_source=qr&stkn=MWhrc2pmd3NlcXlxYg%3D%3D">Instagram</a>
+            
+           
+           
+        </p>
+
+    </footer>
+
+</body>
+</html>
